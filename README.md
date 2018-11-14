@@ -1,5 +1,4 @@
-# winstons npm-build-boilerplate
-
+# VBK
 
 * [Checklista nya projekt](#Checklista-nya-projekt)
 * [Introduktion](#Introduktion)
