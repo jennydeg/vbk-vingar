@@ -1,0 +1,605 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: $grey;
+}
+
+.navigation {
+  background-color: $grey;
+  height: 110px;
+  position: relative;
+  &__logo {
+    left: 30px;
+    position: absolute;
+    top: 50%;
+    transform: translate(0, -50%);
+    @media (min-width: 400px) {
+      left: 30px;
+    }
+  }
+  &__title {
+    color: $brand-color;
+    font-size: 1.8rem;
+    left: 102px;
+    position: absolute;
+    top: 50%;
+    transform: translate(0, -50%);
+    width: 150px;
+    @media (min-width: $screen-md) {
+      font-size: 2.4rem;
+      left: 111px;
+      width: 100%;
+    }
+  }
+  &__menuIcon {
+    background: url("../images/ballburger.svg");
+    background-repeat: no-repeat;
+    border: none;
+    cursor: pointer;
+    height: 40px;
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translate(0, -50%);
+    width: 43px;
+    z-index: 2;
+    &--open {
+      background: #232121;
+      color: #fff;
+      border: solid 2px #fff;
+      border-radius: 50%;
+      :before{
+        content: "X";
+        color: #fff;
+        font-size: 2rem;
+        top: 6px;
+        left: 50%;
+        position: absolute;
+        transform: translate(-50%,0);
+      }
+    }
+    @media (min-width: $screen-md) {
+      right: 40px;
+    }
+  }
+  &__menuText {
+    display: block;
+    font-size: 1.2rem;
+    font-weight: normal;
+    margin-top: 45px;
+    text-align: center;
+  }
+  &__main {
+    display: none;
+    position: fixed;
+    right: 0;
+    background-color: #232121;
+    height: 100%;
+    padding: 40px;
+    max-width: 465px;
+    z-index: 1;
+    width: 100%;
+    &--open {
+      display: block;
+    }
+  }
+  &__mainList {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+  &__mainItem {
+    margin-bottom: 18px;
+    a {
+      color: #fff;
+      font-size: 1.8rem;
+      font-weight: bold;
+    }
+  }
+  &__contact {
+    border-bottom: solid $brand-color 1px;
+    border-top: solid $brand-color 1px;
+    p,
+    a {
+      color: #fff;
+      display: block;
+    }
+  }
+  &__contactInfo {
+    padding: 40px 0px;
+  }
+  &__social {
+    margin-top: 40px;
+    text-align: center;
+  }
+}
+
+.hero {
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  overflow: hidden;
+  min-height: 230px;
+  max-height: 230px;
+  background-image: url("../images/hero_2880x1240.jpg");
+  width: 100%;
+  @media (min-width: $screen-sm) {
+    background-image: url("../images/hero_2880x1240.jpg");
+    height: 70vh;
+    min-height: 400px;
+    max-height: 400px;
+  }
+  @media (min-width: $screen-md) {
+    background-image: url("../images/hero_2880x1240.jpg");
+    min-height: 500px;
+    max-height: 500px;
+  }
+  @media (min-width: $screen-lg) {
+    background-image: url("../images/hero_2880x1240.jpg");
+    max-height: 620px;
+  }
+}
+
+.featuredTeam {
+  margin: 20px 15px;
+  padding: 0px;
+  position: relative;
+  @media (max-width: $screen-md) {
+    @include make-col(12);
+  }
+
+  &__container {
+    @extend .d-md-flex;
+  }
+  &__background {
+    height: 100%;
+    width: 100%;
+    &:before {
+      content: "";
+      background-color: rgba(229, 229, 229, 0.7);
+      height: 100%;
+      left: 0;
+      position: absolute;
+      top: 0;
+      width: 100%;
+    }
+  }
+  &__backgroundImg {
+    min-height: 250px;
+    width: 100%;
+  }
+  &__content {
+    height: 100%;
+    text-align: center;
+    position: absolute;
+    top: 50%;
+    transform: translate(0, -50%);
+    width: 100%;
+  }
+  &__header {
+    font-size: 5.4rem;
+    text-decoration: underline;
+  }
+  &__info {
+    font-size: 2.4rem;
+    line-height: 1.42;
+    margin-top: 30px;
+    time {
+      display: block;
+    }
+  }
+}
+
+.currentFeed {
+  margin-top: 80px;
+  text-align: center;
+  &__header {
+    font-size: 5.4rem;
+    margin-bottom: 60px;
+  }
+  &__articleContainer {
+    @extend .d-flex,
+    .flex-wrap;
+    @media (max-width: $screen-md) {
+      justify-content: center;
+    }
+  }
+  &__article {
+    padding: 11px 20px;
+    margin: 0 0 30px 30px;
+    width: 330px;
+    @media (max-width: $screen-md) {
+      @include make-col(12);
+    }
+    &--withBackground {
+      background-color: $brand-color;
+    }
+    &--imgBackground {
+      background: url("../images/placeholder.jpg");
+      position: relative;
+      &__overlay {
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        left: 0px;
+        position: absolute;
+        top: 0px;
+      }
+    }
+    &:hover {
+      cursor: pointer;
+      text-decoration: underline;
+    }
+  }
+  &__articleDate {
+    color: #fff;
+    font-size: 1.2rem;
+    margin-top: 20px;
+  }
+  &__articleHeader {
+    color: #fff;
+    font-size: 2.4rem;
+    line-height: 1.42;
+    margin: 30px auto;
+    max-width: 250px;
+    &--promoted {
+      color: #000;
+    }
+    @media (max-width: $screen-sm) {
+      text-decoration: underline;
+    }
+  }
+  &__articleContent {
+    color: #fff;
+    font-size: 1.4rem;
+    line-height: 1.29;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    &--promoted {
+      color: #000;
+    }
+    @media (max-width: $screen-sm) {
+      display: none;
+    }
+  }
+  &__link {
+    text-decoration: underline;
+  }
+}
+
+.promotion {
+  @extend .d-flex;
+  margin: 100px auto;
+  max-width: 1200px;
+  &__image {
+    background-image: url("../images/placeholder.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    min-height: 300px;
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+    @media (max-width: $screen-sm) {
+      display: none;
+    }
+  }
+  &__overlay {
+    background-color: rgba(0, 0, 0, 0.6);
+    height: 100%;
+    left: 0;
+    position: absolute;
+    width: 100%;
+  }
+  &__logo {
+    left: 50%;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 110px;
+    &:after {
+      content: "";
+      background-color: #fff;
+      height: 8px;
+      width: 111px;
+    }
+  }
+  &__message {
+    background-color: $brand-color;
+    color: #fff;
+    padding: 33px 30px;
+  }
+  &__header {
+    font-size: 5.4rem;
+    line-height: 1.07;
+  }
+  &__smallprint {
+    margin-top: 23px;
+    p {
+      font-weight: normal;
+      font-size: 1.8rem;
+    }
+  }
+  @media (min-width: $screen-md) {
+    background-size: 50% 100%;
+    background-position: left;
+  }
+}
+
+.instagram {
+  margin: 210px auto 181px;
+  max-width: 1200px;
+  &__header {
+    font-size: 5.4rem;
+    text-align: center;
+  }
+  &__subheader {
+    font-weight: normal;
+    font-size: 1.6rem;
+    text-align: center;
+    margin-bottom: 50px;
+    margin-top: 22px;
+  }
+  &__logo {
+    margin-right: 10px;
+  }
+  &__figure {
+    margin: 15px;
+    position: relative;
+  }
+  &__feed {
+    @extend .d-flex,
+    .flex-wrap,
+    .justify-content-center;
+  }
+  &__img {
+    height: 300px;
+    width: 300px;
+    @media (max-width: $screen-md) and (min-width: $screen-xs) {
+      width: 157px;
+      height: 157px;
+    }
+    @media (min-width: $screen-md) {
+      width: 210px;
+      height: 210px;
+    }
+  }
+  &__overlay{
+    display: none;
+    :hover > &{
+      background-color: rgba($brand-color, 0.88);
+      display: block;
+      color: #fff;
+      display: block;
+      height: 100%;
+      position: absolute;
+      top: 0px;
+      width: 100%;
+    }
+  }
+  &__figcaption {
+    text-align: center;
+    margin-top: 30%;
+    padding-bottom: 50px;
+    height: 100px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
+
+footer {
+  background-color: rgb(35, 33, 33);
+  height: 300px;
+}
+
+.team {
+  &__hero {
+    background-image: url("../images/hero-team-page.jpg");
+    @media (min-width: $screen-sm) {
+      background-image: url("../images/hero-team-page.jpg");
+      height: 70vh;
+      min-height: 400px;
+      max-height: 400px;
+    }
+    @media (min-width: $screen-md) {
+      background-image: url("../images/hero-team-page.jpg");
+      min-height: 500px;
+      max-height: 500px;
+    }
+    @media (min-width: $screen-lg) {
+      background-image: url("../images/hero-team-page.jpg");
+      max-height: 390px;
+    }
+  }
+  &__headerContainer {
+    @extend .d-md-flex;
+  }
+  &__header {
+    height: 350px;
+    padding: 40px 56px;
+    width: 100%;
+    &--first {
+      background-color: $brand-color;
+      color: #fff;
+    }
+    &--second {
+      background-image: url("../images/team.jpg");
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center center;
+      overflow: hidden;
+    }
+    &--third {
+      background-color: $brand-color-secondary;
+      color: #fff;
+    }
+  }
+  &__headerInfo {
+    p {
+      font-size: 2.4rem;
+      line-height: 1.42;
+      margin: 0;
+      @media (min-width: $screen-md) and (max-width: $screen-xxl){
+        font-size: 1.8vw;
+      }
+    }
+  }
+  &__headerTitle {
+    line-height: 1.42;
+    h1 {
+      font-size: 5.4rem;
+      margin: 0 0 21px;
+      @media (min-width: $screen-md) {
+        font-size: 4rem;
+        margin: 0 0 41px;
+      }
+      @media (min-width: $screen-md) and (max-width: $screen-xxl) {
+        font-size: 4vw;
+      }
+    }
+  }
+  &__headerSection {
+    margin-bottom: 10px;
+  }
+  &__headerSectionText {
+    color: #fff;
+    font-weight: normal;
+    line-height: 1.38;
+    margin: 0;
+    &--header {
+      font-weight: bold;
+    }
+    @media (min-width: $screen-md) and (max-width: $screen-xxl) {
+      font-size: 1.3vw;
+    }
+  }
+}
+
+.player {
+  margin: 15px;
+  &__container{
+    @extend .d-flex, .flex-wrap, .justify-content-center;
+    margin: 100px auto;
+    max-width: 1200px;
+  }
+  &__card {
+    background-image: url("../images/player-card.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    overflow: hidden;
+    position: relative;
+    height: 280px;
+    width: 210px;
+    &:after {
+      content: "";
+      width: 100%;
+      height: 100%;
+      background: url("../images/player-card-overlay.png");
+      position: absolute;
+    }
+  }
+  &__details {
+    margin-top: 8px;
+  }
+  &__number {
+    bottom: 0px;
+    color: $brand-color;
+    font-size: 3.0rem;
+    right: 10px;
+    position: absolute;
+    transform: rotate(20deg);
+    z-index: 1;
+  }
+}
+
+.resultstable {
+  margin-top: 100px;
+  &__header {
+    font-size: 5.4rem;
+    text-align: center;
+  }
+  &__subheader {
+    margin-top: 23px;
+    text-align: center;
+    p {
+      font-weight: normal;
+      font-size: 2rem;
+    }
+  }
+}
+
+.quote {
+  color: $brand-color;
+  text-align: center;
+  max-width: 1200px;
+  margin: 140px auto;
+  p {
+    font-size: 5.4rem;
+    font-style: italic;
+    font-weight: 300;
+    padding: 50px 0;
+  }
+  &:before {
+    content: "";
+    width: 145px;
+    height: 11px;
+    background-color: #d6d6d6;
+    left: 50%;
+    position: absolute;
+    transform: translate(-50%, 0);
+  }
+  &:after {
+    content: "";
+    width: 145px;
+    height: 11px;
+    background-color: #d6d6d6;
+    left: 50%;
+    position: absolute;
+    transform: translate(-50%, 0);
+  }
+}
+
+.article {
+  margin: 70px auto;
+  max-width: 810px;
+  &__date {
+    time {
+      font-size: 1.4rem;
+      font-weight: normal;
+    }
+  }
+  &__header {
+    font-size: 5.4rem;
+  }
+  &__intro {
+    font-size: 2.4rem;
+    line-height: 1.33;
+    margin: 50px 0;
+    p {
+      font-weight: normal;
+      font-stretch: condensed;
+      letter-spacing: normal;
+    }
+  }
+  &__content {
+    max-width: 690px;
+  }
+  &__text {
+    p {
+      line-height: 1.78;
+      font-weight: normal;
+    }
+  }
+  &__figure {
+    margin: 50px 0;
+  }
+  &__figureCaption {
+    font-weight: normal;
+    font-size: 1.4rem;
+    line-height: 1.43;
+    margin-top: 15px;
+  }
+}

@@ -1,0 +1,42 @@
+/* html is set to 62.5% so that all the REM measurements are based on 10px sizing. So basically 1.5rem = 15px :) */
+html {
+    font-size: 62.5%;
+    -webkit-font-smoothing: antialiased;
+}
+
+body {
+    font-family: 'Roboto';
+    font-size: 1.8rem;
+    color: #232121;
+}
+
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+time,
+span,
+figcaption {
+  font-family: $font-family-primary;
+  font-style: normal;
+  font-weight: bold;
+  font-size: inherit;
+  font-stretch: condensed;
+}
+
+a {
+    font-family: $font-family-primary;
+    font-style: normal;
+    font-size: inherit;
+    font-stretch: condensed;
+    color: #232121;
+    font-weight: normal;
+    text-decoration: none;
+    &:hover{
+        color: initial;
+    }
+}

@@ -1,0 +1,25 @@
+@mixin absolute($t, $r, $b, $l) {
+    top: $t;
+    right: $r;
+    bottom: $b;
+    left: $l;
+    position: absolute;
+}
+
+$breakpoints: (
+    'xs':  (max-width: 420px),
+    'sm':  (min-width: 768px),
+    'md':  (min-width: 992px),
+    'lg':  (min-width: 1200px)
+);
+
+@mixin breakpoint($state) {
+    @if map-has-key($breakpoints, $state) {
+        @media #{inspect(map-get($breakpoints, $state))} {
+            @content;
+        }
+    }
+    @else {
+        @warn "Couldn't find a breakpoint named `#{$state}`.";
+    }
+}

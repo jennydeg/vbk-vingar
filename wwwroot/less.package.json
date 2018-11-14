@@ -1,0 +1,32 @@
+{
+  "name": "winston-npm-build-boilerplate",
+  "version": "1.0.0",
+  "description": "A set of common build tasks written with npm scripts.",
+  "scripts": {
+    "clean": "rm -f gui/{css/*}",
+    "minifier": "minify gui/css/main.css",
+    "autoprefixer": "postcss -u autoprefixer -r gui/css/main.css",
+    "less": "lessc --source-map gui/source/less/main.less gui/css/main.css",
+    "serve": "browser-sync start --server --files \"gui\" \"HTML\" --startPath \"HTML/index.html\"",
+    "build:css": "npm run less && npm run autoprefixer && npm run minifier",
+    "build:all": "npm run build:css && npm run build:partials",
+    "build:partials": "juice-pack \"gui/source/templates\" HTML",
+    "watch:css": "onchange \"gui/source/less/*.less\" -- npm run build:css",
+    "watch:html": "onchange \"gui/source/templates\" \"gui/source/partials\" -- npm run build:partials",
+    "watch:all": "npm-run-all -p serve watch:css watch:html",
+    "postinstall": "npm run build:all && npm run watch:all --silent",
+    "release":  "npm run less && npm run autoprefixer && npm run minifier",
+    "start": "npm run postinstall"
+  },
+  "author": "Winston",
+  "devDependencies": {
+    "autoprefixer": "^6.6.1",
+    "browser-sync": "^2.18.5",
+    "less": "^2.7.2",
+    "minifier": "^0.8.0",
+    "npm-run-all": "^4.0.0",
+    "onchange": "^3.2.1",
+    "postcss-cli": "^2.6.0",
+    "juice-pack": "https://github.com/emorlin/juice-pack/tarball/master"
+  }
+}

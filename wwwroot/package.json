@@ -1,0 +1,37 @@
+{
+  "name": "Vbk-webb",
+  "version": "1.0.0",
+  "description": "build script for VBK-webb",
+  "scripts": {
+    "clean": "rm -f gui/{css/*}",
+    "scss": "node-sass --output-style compact --source-map true -o gui/css gui/source/scss",
+    "minifier": "minify gui/css/main.css",
+    "autoprefixer": "postcss -u autoprefixer -r gui/css/main.css",
+    "serve": "browser-sync start --server --files \"gui\" \"HTML\" --startPath \"HTML/index.html\"",
+    "build:all": "npm run build:css && npm run build:partials",
+    "build:partials": "juice-pack gui/source/templates/ HTML/",
+    "build:css": "npm run scss",
+    "release": "npm run scss && npm run autoprefixer && npm run minifier",
+    "watch:css": "onchange \"gui/source/scss/*.scss\" -- npm run scss",
+    "watch:partials": "onchange \"gui/source/templates\" \"gui/source/partials\" -- npm run build:partials",
+    "watch:all": "npm-run-all -p serve watch:css watch:partials",
+    "build:html": "juice-pack \"wwwroot/gui/source/templates\" \"wwwroot/HTML\"",
+    "postinstall": "npm run build:css && npm run watch:all --silent",
+    "start": "npm run build:all && npm run watch:all --silent"
+  },
+  "author": "Winston",
+  "devDependencies": {
+    "autoprefixer": "^7.1.6",
+    "browser-sync": "^2.18.13",
+    "juice-pack": "https://github.com/emorlin/juice-pack/tarball/master",
+    "minifier": "^0.8.1",
+    "node-sass": "^4.6.0",
+    "npm-run-all": "^4.1.2",
+    "onchange": "^3.2.1",
+    "postcss-cli": "^4.1.1",
+    "webpack": "^4.2.0"
+  },
+  "dependencies": {
+    "bootstrap": "^4.0.0"
+  }
+}

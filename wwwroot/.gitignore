@@ -1,0 +1,6 @@
+*License.config
+*EPiServerErrors.log
+.vs/
+node_modules
+.surgeignore
+*.orig

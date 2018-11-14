@@ -1,0 +1,74 @@
+//== Media queries breakpoints
+//
+//## Define the breakpoints at which your layout will change, adapting to different screen sizes.
+
+// Extra small screen / iPhone5
+$screen-xs: 400px !default;
+
+// Small screen / tablet
+$screen-sm: 576px !default;
+
+// Medium screen / desktop
+$screen-md: 768px !default;
+
+// Large screen / wide desktop
+$screen-lg: 992px !default;
+
+// Large screen / wide desktop
+$screen-xl: 1200px !default;
+
+$screen-xxl: 1600px !default;
+
+// So media queries don't overlap when required, provide a maximum
+$screen-xs-max: ($screen-sm - 1) !default;
+$screen-sm-max: ($screen-md - 1) !default;
+$screen-md-max: ($screen-lg - 1) !default;
+
+// list of breakpoints
+$breakpoints: (
+  xs:$screen-xs,
+  sm:$screen-sm,
+  md:$screen-md,
+  lg:$screen-lg,
+  xl:$screen-xl
+);
+
+
+//== Grid system
+
+//** Number of columns in the grid.
+$grid-columns: 12;
+//** Padding between columns. Gets divided in half for the left and right.
+$grid-gutter: 19px !default;
+
+
+// Small screen / tablet
+$container-sm: 754px !default;
+//** For `$screen-sm-min` and up.
+
+// Medium screen / desktop
+$container-md: (940px + ($grid-gutter*2)) !default;
+//** For `$screen-md-min` and up.
+
+// Large screen / wide desktop
+$container-lg: (1186px + ($grid-gutter*2)) !default;
+//** For `$screen-lg-min` and up.
+
+//== Colors
+$grey: #f6f6f6;
+$white: #ffffff;
+$brand-color: #c11e43;
+$brand-color-secondary: #505050;
+$link-color: #232121;
+$required: #c00000;
+
+//== Typography
+//
+//## Font, line-height, and color for body text, headings, and more.
+
+$font-family-editorial: "Open Sans", sans-serif;
+$font-family-primary: "Roboto Condensed", sans-serif;
+
+
+$font-size-base: 1.9rem;
+$line-height-base: 1.68;
